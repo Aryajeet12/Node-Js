@@ -6,5 +6,11 @@ app.listen(8080,()=>{
 app.get("/x/:num1/y/:num2",(req,res)=>{
     console.log(req.url)
     console.log(req.params)
-    res.send((+req.params.id + +req.params.er).toString())
+    res.send((+req.params.num1 + +req.params.num2).toString())
+})
+
+app.get("/x/:num1/y/:num2/z/:num3",(req,res)=>{
+    console.log(req.url)
+    console.log(req.params)
+    res.send((+req.params.num1 + +req.params.num2+ +req.params.num3).toString())
 })
