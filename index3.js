@@ -10,5 +10,10 @@ app.get("/",(req,res)=>{
 
 app.get("/home",(req,res)=>{
     console.log(req.url)
+    console.log(req.method)
+    console.log(req.body)
+    console.log(req.header)
+    console.log(req.headers.authorization)
+
     res.send("response form home /")
 })
