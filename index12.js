@@ -1,25 +1,11 @@
-//router
+//route
 import express from "express"
-const app=express()
-app.listen(8080,()=>{
-    console.log("server started") 
-})
-const userRouter=express.Router()
-const productRouter=express.Router()
+import userRouter from "./routes/userRoutes.js"
+import productRouter from "./routes/productRoutes.js"
 
-userRouter.get("/",(req,res)=>{
-    res.send("request from userrouter")
-})
-userRouter.post("/",(req,res)=>{
-    res.send("this is post request from userrouter")
-})
+const app = express()
 
-productRouter.get("/",(req,res)=>{
-    res.send("request from productrouter")
-})
-productRouter.post("/",(req,res)=>{
-    res.send("this is post request from productrouter")
-})
+app.use("/api/users", userRouter)
+app.use("/api/products", productRouter)
 
-app.use("/api/users",userRouter)
-app.use("/api/product",productRouter)
+app.listen(8080, () => console.log("Server started"))
